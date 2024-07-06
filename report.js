@@ -1,6 +1,6 @@
 function printReport(pages){
     console.log('REPORT')
-    console.log('////////')
+    console.log('/ / / / /')
     const sortedPages = sortPages(pages)
     for (const sortedPage of sortedPages){
       const url = sortedPage[0]
@@ -8,8 +8,6 @@ function printReport(pages){
       console.log(`Found ${count} internal links to ${url}`)
     }
   }
-  
-  // sortPages sorts a dictionary of pages
   function sortPages(pages){
     const pagesArr = Object.entries(pages)
     pagesArr.sort((pageA, pageB) => {
