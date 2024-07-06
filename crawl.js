@@ -1,6 +1,6 @@
 const { JSDOM } = require('jsdom')
 async function crawlPage(baseURL, currentURL, pages){
-  // if an offsite URL , exit
+  //offsite URL , exit
   const currentUrlObj = new URL(currentURL)
   const baseUrlObj = new URL(baseURL)
   if (currentUrlObj.hostname !== baseUrlObj.hostname){
@@ -8,15 +8,11 @@ async function crawlPage(baseURL, currentURL, pages){
   }
   
   const normalizedURL = normalizeURL(currentURL)
-
-  // if we've already visited this page
   if (pages[normalizedURL] > 0){
     pages[normalizedURL]++
     return pages
   }
   pages[normalizedURL] = 1
-
-  // fetch and parse the html of the currentURL
   console.log(`crawling ${currentURL}`)
   let htmlBody = ''
   try {
